@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@700&display=swap');
+.App-header {
+  max-width: 1920px;
+  margin: 0 auto;
+  display: flex;
+  justify-items: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: 'Blinker', sans-serif;
+}
+h1 {
+  text-align: center;
+  font-family: 'Blinker', sans-serif;
+  font-size: 50px;
+}
+.beer_list ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 10px;
+  padding: 0;
+}
+.single_list {
+  list-style: none;
+  margin: 5px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 2px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-align: center;
+}
+.imgBeers {
+  width: 100px;
+  height: 300px;
+}
+.search-beer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.button-search {
+  padding-left: 15px;
+}
