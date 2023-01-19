@@ -1,6 +1,7 @@
 import React from "react";
 
 function Search() {
+  
     return (
         <div className="search-beer">
             <input className="input-search" type="text" placeholder="Search beers"/>
