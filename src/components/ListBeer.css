@@ -1,0 +1,40 @@
+.beer-list {
+    background-color: blue;
+}
+.table {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.table-row{
+  background-color: #5c705e;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+  5px 5px 0px 0px;
+}
+.table-body__row{
+    border-radius: 3px;
+    padding: 25px 30px;
+    border: 1px solid;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+}
+.table-body__row:nth-last-child(odd){
+    background-color: rgb(221, 220, 220);
+}
+tr {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+td, th{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
