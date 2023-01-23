@@ -1,8 +1,5 @@
-.beer-list {
-    background-color: blue;
-}
 .tbl-content {
-    padding-top: 50px;
+    padding-top: 20px;
 }
 .table {
     width: 1200px;
@@ -46,4 +43,15 @@ td, th{
 .image-beer-list {
     width: 70px;
     height: 70px;
+}
+.hello {
+    display: flex;
+    justify-content: end;
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+.button-content {
+    position: absolute;
+    top: 680px;
+    right: 100px;
 }

@@ -11,12 +11,10 @@ const Pagination = (props) => {
   }
 
   const handlePrevClick = () => {
-    console.log('click');
     props.onPrevClick();
   };
 
   const handleNextClick = () => {
-    console.log('click');
     props.onNextClick();
   };
 

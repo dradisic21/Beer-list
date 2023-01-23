@@ -30,3 +30,15 @@ export async function getBeer(id) {
     requestOptions
   );
 }
+
+export async function searchBeer(keyword) {
+  const requestOptions = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  return axios.get(
+    `https://api.punkapi.com/v2/beers?beer_name=${keyword.replace(' ', '_')}`,
+    requestOptions
+  );
+}

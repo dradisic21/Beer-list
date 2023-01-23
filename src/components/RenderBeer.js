@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { addMethod } from "yup";
 import { getBeer } from "../Api";
 import "./RenderBeer.css";
 
 function RenderBeer() {
   const [beer, setBeer] = useState({});
   const location = useLocation();
-  const loggedInUser = JSON.parse(localStorage.getItem("Username"));
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBeer = async () => {
@@ -43,8 +42,8 @@ function RenderBeer() {
                 <p>Amount: {item.ingredients.malt[0].amount.value} kg</p>
                 <p>Hops name: {item.ingredients.malt[1].name}</p>
                 <p>Amount: {item.ingredients.malt[1].amount.value} g</p>
-                <p>Hops name: {item.ingredients.malt[2].name}</p>
-                <p>Amount: {item.ingredients.malt[2].amount.value} g</p>
+                <p>Hops name: {item.ingredients.malt[2]?.name}</p>
+                <p>Amount: {item.ingredients.malt[2]?.amount.value} g</p>
                 <p>Yeast: {item.ingredients.yeast}</p>  
               </div>
               <div className="specification">
@@ -75,6 +74,10 @@ function RenderBeer() {
               </div>
             </div>
             <div className="tips">
+              <button 
+                  onClick={() => navigate(-1)}
+                  type="submit"
+                  className="btn btn-primary ">Back</button>
                   <p>{item.brewers_tips}</p>
                   <p>{item.contributed_by}</p>
               </div>

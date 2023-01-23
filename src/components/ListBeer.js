@@ -15,8 +15,10 @@ function ListBeer() {
   const [totalPages, setTotalPages] = useState(0);
   const pageNumberLimit = 5;
   const navigate = useNavigate();
+  const loggedInUser = JSON.parse(localStorage.getItem("Username"));
 
   useEffect(() => {
+    console.log('usao u useEffect');
     const fetchBeer = async () => {
       try {
         const response = await getBeers(pageNumberLimit, currentPage);
@@ -33,29 +35,25 @@ function ListBeer() {
     fetchBeer();
   }, [currentPage]);
 
+  const filterBeers = (filteredBeers) => {
+    setBeers(filterBeers);
+  }
+
   let showBeer = (index) => {
     navigate("/renderbeer", { state: { beerId: index } });
+  };
+  const handleLogout = (e) => {
+    localStorage.clear("userToken");
+    navigate("/");
   };
 
   const onPageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
-  const onPrevClick = () => {
-    if ((currentPage - 1) % pageNumberLimit === 0) {
-      setMaxPageLimit(maxPageLimit - pageNumberLimit);
-      setMinPageLimit(minPageLimit - pageNumberLimit);
-    }
-    setCurrentPage((prev) => prev - 1);
-  };
+  const onPrevClick = () => {};
 
-  const onNextClick = () => {
-    if (currentPage + 1 > maxPageLimit) {
-      setMaxPageLimit(maxPageLimit + pageNumberLimit);
-      setMinPageLimit(minPageLimit + pageNumberLimit);
-    }
-    setCurrentPage((prev) => prev + 1);
-  };
+  const onNextClick = () => {};
 
   const paginationAttributes = {
     currentPage,
@@ -66,15 +64,22 @@ function ListBeer() {
 
   return (
     <main className="App-container">
-       {loading && <div>A moment please...</div>}
+      {loading && <div>A moment please...</div>}
       {error && <div>{`Problem fetching the post data - ${error}`}</div>}
-       <div className="image-container">
-       
+      <div className="image-container">
         <img src="../../images/cover_beer.jpeg" alt="header-image" />
-        </div>
+      </div>
       <div className="beer_list">
-          <Search />
+        <Search filterBeers={filterBeers}/>
         <div className="tbl-content">
+          <div className="hello">
+            <h3>Hello {loggedInUser}</h3>
+            <div className="button-content">
+              <button onClick={handleLogout} type="submit" className="button">
+                Logout
+              </button>
+            </div>
+          </div>
           <table className="table">
             <thead className="table-header">
               <tr className="table-row">
@@ -118,28 +123,6 @@ function ListBeer() {
             />
           </div>
         </div>
-
-        {/*<ul>
-          {item &&
-            item.length > 0 &&
-            item.map((itemObj) => (
-              <div onClick={() => showBeer()} className="single_list">
-                <li>
-                  <h3>{itemObj.name}</h3>
-                </li>
-                <li>
-                  <img
-                    src={itemObj.image_url}
-                    alt="bears"
-                    className="imgBeers"
-                  />
-                </li>
-                <li>
-                  <p>{itemObj.description}</p>
-                </li>
-              </div>
-            ))}
-        </ul> */}
       </div>
     </main>
   );

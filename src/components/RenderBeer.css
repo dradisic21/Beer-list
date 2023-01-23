@@ -1,18 +1,19 @@
 .beer-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  
   margin: 100px;
   padding: 0;
 }
 .single-beer__image {
-    margin: 30px;
+    margin: 10px;
     padding: 10px;
+    width: 350px;
     text-transform: uppercase;
     color: #000;
     border: 2px solid;
     box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
       5px 5px 0px 0px;
+      background-color: #f29f05;
     user-select: none;
     -webkit-user-select: none;
     text-align: center;
@@ -29,6 +30,8 @@
   .specification {
     padding-top: 20px;
     padding-left: 20px;
+    max-width: 300px;
+    
   }
   .specification p {
     border: 1px solid;
