@@ -21,7 +21,6 @@ function ListBeer() {
       try {
         const response = await getBeers(pageNumberLimit, currentPage);
         setBeers(response.data);
-       //console.log(response);
         setTotalPages(Math.ceil(response.data / pageNumberLimit));
         setError(null);
       } catch (err) {
@@ -35,7 +34,7 @@ function ListBeer() {
   }, [currentPage]);
 
   let showBeer = (index) => {
-    navigate("/renderbeer", { state: {beerId: index} });
+    navigate("/renderbeer", { state: { beerId: index } });
   };
 
   const onPageChange = (pageNumber) => {
@@ -67,15 +66,19 @@ function ListBeer() {
 
   return (
     <main className="App-container">
-      {loading && <div>A moment please...</div>}
+       {loading && <div>A moment please...</div>}
       {error && <div>{`Problem fetching the post data - ${error}`}</div>}
+       <div className="image-container">
+       
+        <img src="../../images/cover_beer.jpeg" alt="header-image" />
+        </div>
       <div className="beer_list">
-        <h1>BEER LIST</h1>
-        <Search />
+          <Search />
         <div className="tbl-content">
           <table className="table">
             <thead className="table-header">
               <tr className="table-row">
+                <th scope="col"></th>
                 <th scope="col">Name</th>
                 <th scope="col">Tagline</th>
                 <th scope="col">First Brewed</th>
@@ -91,8 +94,11 @@ function ListBeer() {
                     <tr
                       key={beer.id}
                       onClick={() => showBeer(beer.id)}
-                      className="table-body__row" 
+                      className="table-body__row"
                     >
+                      <td className="image-beer-list">
+                        <img src={beer.image_url} />
+                      </td>
                       <td>{beer.name}</td>
                       <td>{beer.tagline}</td>
                       <td>{beer.first_brewed}</td>
